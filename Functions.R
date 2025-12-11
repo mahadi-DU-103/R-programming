@@ -106,6 +106,33 @@ f2 <- function(x, exp=2, hist = F){
 f2(normal_dist)
 f2(normal_dist, breaks = 50, hist=TRUE)
  
+#Function for determining the probability of values of a poisson random variable:
+
+#If X∼Poisson(λ), then dpois(x, lambda) returns P(X=x), 
+#ppois(q, lambda) returns P(X≤q) for a Poisson random variable with mean lambda and
+#With lower.tail = FALSE, ppois(q, lambda, lower.tail = FALSE) returns P(X>q), which is useful for “at least” type questions
+
+#X ~ Poisson(lambda)
+
+poisson<-function(x,lambda){
+  probability = dpois(x, lambda) 
+  print(paste("The probability of X=",x,"is",probability))
+}
+poisson(7,7)
+
+# for P(X≤q)
+poisson<- function(x,lambda){
+  probability<-ppois(x,lambda)
+  print(paste("The probability P(X <=",x,") is",probability))
+}
+poisson(4,7)
+
+#for P(X>q), if we need to find P(x>=3) we need to calculate P(X>2).
+poisson<- function(x,lambda){
+  probability<-ppois(x,lambda,lower.tail=F)
+  print(paste("The probability P(X <=",x,") is",probability))
+}
+poisson(2,7)
 
 
 
