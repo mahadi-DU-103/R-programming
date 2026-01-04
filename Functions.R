@@ -1,4 +1,4 @@
-squares <- function(x)
+  c squares <- function(x)
 {
   for (i in 1:x){
     b <-i^2
@@ -106,9 +106,9 @@ f2 <- function(x, exp=2, hist = F){
 f2(normal_dist)
 f2(normal_dist, breaks = 50, hist=TRUE)
  
-#Function for determining the probability of values of a poisson random variable:
+#Function for determining the probability of values of a random variable:
 
-#If X∼Poisson(λ), then dpois(x, lambda) returns P(X=x), 
+#1. If X∼Poisson(λ), then dpois(x, lambda) returns P(X=x), 
 #ppois(q, lambda) returns P(X≤q) for a Poisson random variable with mean lambda and
 #With lower.tail = FALSE, ppois(q, lambda, lower.tail = FALSE) returns P(X>q), which is useful for “at least” type questions
 
@@ -134,6 +134,30 @@ poisson<- function(x,lambda){
 }
 poisson(2,7)
 
+#2. X ~ Normal(mu,sigma^2)
+#If X∼N(μ,σ2), then dnorm(x, mean, sd) returns the height of the probability density function at x,
+#pnorm(q, mean, sd) returns P(X≤q) for a normal random variable with mean and standard deviation sd.
+#With lower.tail = FALSE, pnorm(q, mean, sd, lower.tail = FALSE) returns P(X>q), which is useful for “at least” type questions.
+#for P(X≤q)
+normal1<- function(x,mean,sd){
+  probability<-pnorm(x,mean,sd)
+  print(paste("The probability P(X <=",x,") is",probability))
+}
+normal1(43,43,3)
+
+#for P(X>q)
+normal2<-function(x,mean,sd){
+  probability<-pnorm(x,mean,sd,lower.tail=F)
+  print(paste("The probability P(X >",x,") is",probability))
+}
+normal2(46,43,3)
+
+#for P(q<X<r)
+normal3<-function(q,r,mean,sd){
+  probability<-pnorm(r,mean,sd)-pnorm(q,mean,sd)
+  print(paste("The probability P(",q,"<X<",r,") is",probability))
+}
+normal3(37,49,43,3)
 
 
 
