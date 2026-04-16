@@ -56,8 +56,8 @@ cat("R-squared value:", summary_model$r.squared, "\n")
 
 
 #incourse 21: 
-income_level<-c(100,500,1000,2000)
-persons<-c(140,82,53,25)
+income_level<-c(1,100,500,1000,2000)
+persons<-c(240,140,82,53,25)
 
 cumulative_persons<-rev(cumsum(rev(persons))) #rev() is used to reverse the order of the vector, cumsum() is used to calculate the cumulative sum of the vector. here we are calculating the cumulative sum of the reversed vector of persons, which gives us the cumulative percentage of people with income greater than or equal to each income level. then we reverse it back to get the cumulative percentage in the original order.
 cumulative_persons
