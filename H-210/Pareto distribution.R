@@ -62,8 +62,11 @@ persons<-c(240,140,82,53,25)
 cumulative_persons<-rev(cumsum(rev(persons))) #rev() is used to reverse the order of the vector, cumsum() is used to calculate the cumulative sum of the vector. here we are calculating the cumulative sum of the reversed vector of persons, which gives us the cumulative percentage of people with income greater than or equal to each income level. then we reverse it back to get the cumulative percentage in the original order.
 cumulative_persons
 
+percentage_cum_persons<- (cumulative_persons/cumulative_persons[1])*100
+percentage_cum_persons
+
 x<-log(income_level)
-y<-log(cumulative_persons)
+y<-log(percentage_cum_persons)
 
 model<-lm(y~x)
 coefficients(model)
@@ -82,3 +85,7 @@ A
 estimated_target<- 1500
 estimated_population<- A * estimated_target^(-α)
 estimated_population
+
+number_of_people_with_income_greater_than_1500<- (estimated_population*540)/100
+number_of_people_with_income_greater_than_1500
+
